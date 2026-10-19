@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>VARIEE – Empowering communities, growing a sustainable future</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0d0f29; --ink2:#232857; --paper:#0d0f29; --text:#eceef6; --muted:#a8adc9; --ease:cubic-bezier(.22,1,.36,1);
+  --card:rgba(255,255,255,.045); --line:#2f3466; --gold:#f2a71b; --leaf:#3fb584;
+  --hero-text:#f4f6f3;
+  --serif:'Fraunces',Georgia,'Times New Roman',serif; --sans:'Figtree',system-ui,-apple-system,'Segoe UI',sans-serif;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#10122b;--text:#eceef6;--muted:#a3a8c6;--card:#1a1d41;--line:#2f3466;--ink:#0b0d22;}}
+:root[data-theme="dark"]{--paper:#10122b;--text:#eceef6;--muted:#a3a8c6;--card:#1a1d41;--line:#2f3466;--ink:#0b0d22;}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px);scroll-behavior:smooth;scrollbar-color:var(--gold) var(--ink);scrollbar-width:thin}
+::-webkit-scrollbar{width:12px;height:12px}
+::-webkit-scrollbar-track{background:var(--ink)}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:999px;border:3px solid var(--ink)}
+::-webkit-scrollbar-thumb:hover{background:#ffbf3f}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--ink);color:var(--text);font:400 1.0625rem/1.65 var(--sans);overflow-x:clip;position:relative}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(1000px 700px at 78% 8%,var(--ink2),transparent 65%),radial-gradient(900px 700px at 4% 95%,rgba(63,181,132,.15),transparent 62%)}
+.bg{position:absolute;inset:0;overflow:hidden;z-index:-1;pointer-events:none}
+.bg .l1,.bg .l2,.bg .rl{position:absolute;will-change:transform}
+.bg .l1,.bg .l2{inset:0}
+.bg i{position:absolute;border-radius:50%;background:radial-gradient(circle,var(--c),transparent 68%);animation:float 22s ease-in-out infinite alternate}
+.bg .l2 i{animation-duration:30s;animation-direction:alternate-reverse}
+.rl{width:900px;height:900px;right:-320px;top:14%}
+.rl.two{left:-380px;right:auto;top:58%;width:760px;height:760px}
+.ring{width:100%;height:100%;opacity:.1;animation:spinslow 240s linear infinite}
+.rl.two .ring{animation-direction:reverse}
+.prog{position:fixed;top:0;left:0;height:3px;width:100%;z-index:20;transform-origin:0 50%;transform:scaleX(var(--p,0));background:linear-gradient(90deg,var(--gold),#ff7d6e,#b58cff)}
+h1,h2,h3{font-family:var(--serif);line-height:1.1;margin:0;font-weight:600;letter-spacing:-.01em}
+p{margin:0 0 1em;max-width:62ch}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+
+/* nav */
+header{position:fixed;top:0;left:0;right:0;z-index:15;padding-top:env(safe-area-inset-top,0px);transition:background .6s var(--ease),backdrop-filter .6s var(--ease),box-shadow .6s var(--ease)}
+header.scrolled{background:rgba(13,15,41,.7);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);box-shadow:0 1px 0 rgba(255,255,255,.06)}
+header nav{transition:padding .6s var(--ease)}header.scrolled nav{padding:13px 0}
+nav{display:flex;align-items:center;justify-content:space-between;padding:22px 0;color:var(--hero-text)}
+.logo{font:700 1.5rem var(--serif);text-decoration:none;letter-spacing:.04em}
+nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0;font-weight:500;font-size:.98rem}
+nav a{text-decoration:none;opacity:.85;transition:opacity .4s var(--ease)}nav a:hover{opacity:1}
+nav ul a{padding-bottom:5px;background:linear-gradient(var(--gold),var(--gold)) 0 100%/0 2px no-repeat;transition:background-size .6s var(--ease),opacity .4s}
+nav ul a:hover{background-size:100% 2px}
+
+/* hero */
+.hero{color:var(--hero-text);padding:130px 0 70px;position:relative}
+.hero::before{content:"";position:absolute;width:460px;height:460px;border-radius:50%;right:-80px;top:-100px;background:radial-gradient(circle,rgba(242,167,27,.2),transparent 68%);animation:drift 12s ease-in-out infinite alternate}
+.hero::after{content:"";position:absolute;width:380px;height:380px;border-radius:50%;left:-120px;bottom:-140px;background:radial-gradient(circle,rgba(92,200,255,.16),transparent 68%);animation:drift 16s ease-in-out infinite alternate-reverse}
+.hero .wrap{position:relative;z-index:1}
+.hero h1 .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.14em;margin-bottom:-.14em}
+.hero h1 .w>span{display:inline-block;transform:translateY(108%);animation:wordup 1.4s var(--ease) forwards;animation-delay:calc(.15s + var(--i)*.09s)}
+.hero p.lead{animation:rise 1.3s .75s var(--ease) both}
+.hero .btn{animation:rise 1.3s 1s var(--ease) both}
+.hint{animation:rise 1.3s 2s var(--ease) both}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(2.5rem,5.6vw,4.6rem);font-weight:700}
+.hero p.lead{font-size:1.2rem;color:#c9cde3;margin-top:24px}
+.btn{display:inline-block;background:var(--gold);color:#1b1500;font-weight:600;padding:14px 26px;border-radius:999px;text-decoration:none;border:0;font:600 1rem var(--sans);cursor:pointer;margin-top:10px}
+.btn:hover{filter:brightness(1.08);transform:translateY(-3px);box-shadow:0 10px 24px rgba(242,167,27,.35)}
+.btn{transition:transform .25s,filter .25s,box-shadow .25s}
+.mandala{width:100%;max-width:480px;margin:0 auto;display:block;animation:spin 140s linear infinite}
+.petal{transform-origin:200px 200px;mix-blend-mode:screen;opacity:.82;cursor:pointer;transition:opacity .6s var(--ease),filter .6s var(--ease);animation:bloom 2.4s var(--ease) both}
+.petal:focus{outline:none}
+.petal:focus-visible{outline:none;stroke:#fff;stroke-width:3}
+.petal:hover,.petal.on{opacity:1;filter:brightness(1.25)}
+.petal.dim{opacity:.35}
+@keyframes bloom{from{transform:rotate(calc(var(--a) - 120deg)) scale(.1);opacity:0}}
+@keyframes rise{from{opacity:0;transform:translateY(28px);filter:blur(8px)}}
+@keyframes wordup{to{transform:none}}
+@keyframes float{to{translate:40px -50px;scale:1.12}}
+@keyframes spinslow{to{transform:rotate(360deg)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes pulse{50%{transform:scale(1.35)}}
+@keyframes drift{to{transform:translate(-50px,40px) scale(1.15)}}
+@keyframes swap{from{opacity:0;transform:translateY(18px);filter:blur(6px)}}
+@keyframes spinin{from{transform:rotate(-120deg) scale(.4);opacity:0}}
+.swap > div:last-child{animation:swap 1s var(--ease)}
+.swap .swatch{animation:spinin 1.2s var(--ease)}
+.rv{opacity:0;transform:translateY(42px);filter:blur(8px);transition:opacity 1.3s var(--ease),transform 1.3s var(--ease),filter 1.3s var(--ease);transition-delay:var(--d,0s)}
+.rv.in{opacity:1;transform:none;filter:none}
+.core{fill:var(--gold);transform-origin:200px 200px;animation:pulse 3.2s ease-in-out infinite;transition:fill .3s}
+.hint{text-align:center;font-size:.9rem;color:#a9aed0;margin:6px 0 0}
+
+/* domain explorer */
+.explore{color:var(--hero-text);padding:96px 0 100px}
+.xh{font-size:clamp(2rem,4vw,3rem);margin-bottom:44px}
+.xgrid{display:grid;grid-template-columns:300px 1fr;gap:48px;align-items:start}
+.chips{display:flex;flex-direction:column;gap:10px}
+.chip{border:1.5px solid var(--c);color:var(--hero-text);background:transparent;border-radius:999px;padding:9px 18px;font:500 .95rem var(--sans);cursor:pointer;transition:background .2s,color .2s}
+.chip:hover{background:color-mix(in srgb,var(--c) 30%,transparent)}
+.chip[aria-selected="true"]{background:var(--c);color:#12142e;font-weight:600}
+.chip{text-align:left;border-radius:14px;padding:13px 18px}
+.panel{display:grid;grid-template-columns:auto 1fr;gap:34px;align-items:start;background:var(--ink2);border:1px solid #343a78;border-radius:6px 28px 6px 28px;padding:38px;min-height:300px}
+:root[data-theme="dark"] .panel,:root:not([data-theme="light"]) .panel{background:#171a3d}
+.panel .swatch{width:84px;height:84px;border-radius:50% 50% 50% 8%;background:var(--c);transition:background .3s}
+.panel h3{font-size:clamp(1.8rem,3.4vw,2.6rem)}
+.panel p{color:#cfd3ea;margin-top:14px;font-size:1.1rem}
+
+section.block{padding:96px 0}
+.split{display:grid;grid-template-columns:1fr 1.4fr;gap:60px}
+.split h2{font-size:clamp(2rem,4vw,3rem)}
+.split p{color:var(--muted)}
+.vm{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.vm article{background:var(--card);border:1px solid var(--line);border-radius:6px 28px 6px 28px;padding:34px}
+.vm h3{font-size:1.6rem;margin-bottom:14px}
+.vm p{color:var(--muted);font-size:1rem}
+.vm article:nth-child(1){border-top:5px solid var(--gold)}.vm article:nth-child(2){border-top:5px solid var(--leaf)}
+
+/* values */
+.values{}
+.values h2{font-size:clamp(2rem,4vw,3rem);margin-bottom:34px}
+.words{display:flex;flex-wrap:wrap;gap:6px 30px;align-items:baseline;font-family:var(--serif);font-weight:600;line-height:1.25}
+.words span{font-size:var(--s);color:var(--col)}
+.vgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px 50px;margin-top:46px}
+.vgrid p{color:var(--muted);margin:0;font-size:1rem}
+
+/* join */
+.join{text-align:center}
+.join h2{font-size:clamp(2.1rem,4.6vw,3.4rem);max-width:18ch;margin:0 auto 18px}
+.join p{margin-inline:auto;color:var(--muted)}
+form{max-width:560px;margin:40px auto 0;display:grid;gap:14px;text-align:left}
+label{font-weight:600;font-size:.95rem}
+input,textarea,select{width:100%;margin-top:6px;padding:13px 14px;border-radius:10px;border:1.5px solid var(--line);background:var(--card);color:var(--text);font:inherit}
+textarea{min-height:120px;resize:vertical}
+.note{text-align:center;color:var(--muted);font-size:.95rem;margin-top:14px}
+footer{color:#b6bad6;padding:44px 0 50px}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+footer .logo{color:var(--hero-text)}
+
+@media (max-width:860px){
+  .hero{padding-top:110px}.hero .wrap,.split,.vm,.vgrid,.xgrid{grid-template-columns:1fr}.chips{flex-direction:row;flex-wrap:wrap}.chip{border-radius:999px;padding:9px 16px}.panel{padding:26px}.explore{padding:72px 0 76px}section.block{padding:72px 0}
+  nav ul{display:none}.panel{grid-template-columns:1fr;gap:18px}.panel .swatch{width:56px;height:56px}
+  .mandala{max-width:340px}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none;filter:none}.hero h1 .w>span{transform:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="prog" id="prog" aria-hidden="true"></div>
+<div class="bg" aria-hidden="true">
+  <div class="l1">
+    <i style="top:8%;left:-12%;width:680px;height:680px;--c:rgba(63,181,132,.17)"></i>
+    <i style="top:40%;right:-14%;width:700px;height:700px;--c:rgba(92,200,255,.12)"></i>
+    <i style="top:76%;left:8%;width:620px;height:620px;--c:rgba(181,140,255,.14)"></i>
+  </div>
+  <div class="l2">
+    <i style="top:24%;left:52%;width:480px;height:480px;--c:rgba(242,167,27,.11)"></i>
+    <i style="top:58%;left:-6%;width:520px;height:520px;--c:rgba(255,125,110,.10)"></i>
+    <i style="top:86%;left:55%;width:600px;height:600px;--c:rgba(63,181,132,.13)"></i>
+  </div>
+  <div class="rl"><svg class="ring" viewBox="0 0 400 400" fill="none" stroke="#f2a71b" stroke-width="1"><circle cx="200" cy="200" r="60"/><circle cx="200" cy="200" r="130"/><circle cx="200" cy="200" r="195"/><ellipse cx="200" cy="112" rx="36" ry="84"/><ellipse cx="200" cy="112" rx="36" ry="84" transform="rotate(45 200 200)"/><ellipse cx="200" cy="112" rx="36" ry="84" transform="rotate(90 200 200)"/><ellipse cx="200" cy="112" rx="36" ry="84" transform="rotate(135 200 200)"/><ellipse cx="200" cy="112" rx="36" ry="84" transform="rotate(180 200 200)"/><ellipse cx="200" cy="112" rx="36" ry="84" transform="rotate(225 200 200)"/><ellipse cx="200" cy="112" rx="36" ry="84" transform="rotate(270 200 200)"/><ellipse cx="200" cy="112" rx="36" ry="84" transform="rotate(315 200 200)"/></svg></div>
+</div>
+<header><div class="wrap"><nav aria-label="Main">
+  <a class="logo" href="#top">VARIEE</a>
+  <ul><li><a href="#about">About</a></li><li><a href="#vision">Vision &amp; Mission</a></li><li><a href="#domains">Domains</a></li><li><a href="#values">Values</a></li><li><a href="#contact">Contact</a></li></ul>
+</nav></div></header>
+
+<main id="top">
+<section class="hero"><div class="wrap">
+  <div>
+    <h1>Empowering communities for a sustainable future</h1>
+    <p class="lead">At VARIEE, we are dedicated to creating a sustainable future by empowering communities through impactful initiatives. Every individual deserves the opportunity to thrive.</p>
+    <a class="btn" href="#contact">Join us in making a difference</a>
+  </div>
+  <div class="mwrap">
+    <svg class="mandala" viewBox="0 0 400 400" role="group" aria-label="Eight areas of impact, shown as petals. Select a petal to read about it." id="mandala"></svg>
+    <p class="hint">Eight petals, eight areas of impact. Select one to read more.</p>
+  </div>
+</div></section>
+
+<section class="block" id="about"><div class="wrap split">
+  <h2>About us</h2>
+  <div>
+    <p>VARIEE is a purpose-driven organization dedicated to empowering communities and fostering sustainable growth through initiatives in health &amp; hygiene, women empowerment, education, agriculture, food &amp; nutrition, skill development, socio-economic development, and business mentorship.</p>
+    <p>Our mission is to create a world where everyone has the opportunity to thrive, regardless of their background or circumstances. Our programs aim to create a more equitable world with access to nutritious food, quality education, and economic independence.</p>
+    <p>Our commitment to excellence and innovation drives us to continuously improve and expand our impact.</p>
+  </div>
+</div></section>
+
+<section class="block" id="vision" style="padding-top:0"><div class="wrap vm">
+  <article>
+    <h3>Our vision</h3>
+    <p>A world where every community has access to health, education, and economic opportunities, fostering a sustainable future for all.</p>
+    <p>That means a healthier society, stronger communities with inclusive opportunities, and people who have the skills and knowledge to lead healthy, productive lives. It means sustainable agriculture and nutrition, equal opportunities for lifelong success, and change inspired through leadership and mentorship, with health, education, and economic empowerment integrated into every community.</p>
+  </article>
+  <article>
+    <h3>Our mission</h3>
+    <p>To improve community health and hygiene by providing resources, education, and support, and to empower women to transform communities through education, skills training, and economic opportunities.</p>
+    <p>We build a foundation of knowledge and opportunity, promote sustainable agriculture and food security, drive socio-economic growth through innovation, mentor the next generation of leaders, improve nutrition, and bridge gaps in education and economic opportunity, creating a healthier, more equitable world through community-driven initiatives.</p>
+  </article>
+</div></section>
+
+<section class="explore" id="domains"><div class="wrap">
+  <h2 class="xh">Our core areas of impact</h2>
+  <div class="xgrid">
+    <div class="chips" role="tablist" aria-label="Our core areas of impact" id="chips"></div>
+    <div class="panel" id="panel" role="tabpanel" aria-live="polite">
+      <div class="swatch" id="swatch"></div>
+      <div><h3 id="ptitle"></h3><p id="ptext"></p></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="block values" id="values"><div class="wrap">
+  <h2>What we value</h2>
+  <div class="words" aria-hidden="true">
+    <span style="--s:3.2rem;--col:var(--gold)">Integrity</span><span style="--s:2.2rem;--col:var(--leaf)">Empowerment</span><span style="--s:2.8rem;--col:var(--text)">Inclusivity</span>
+    <span style="--s:3rem;--col:var(--leaf)">Sustainability</span><span style="--s:2rem;--col:var(--gold)">Collaboration</span><span style="--s:2.5rem;--col:var(--text)">Innovation</span>
+    <span style="--s:2.1rem;--col:var(--leaf)">Respect</span><span style="--s:3rem;--col:var(--gold)">Excellence</span><span style="--s:2.4rem;--col:var(--text)">Community-centered</span><span style="--s:2.2rem;--col:var(--leaf)">Social responsibility</span>
+  </div>
+  <div class="vgrid">
+    <p>We uphold honesty and ethical behavior to build trust with communities and partners.</p>
+    <p>We provide tools, knowledge, and opportunities for individuals and communities to achieve their full potential.</p>
+    <p>We prioritize sustainable practices, collaborate with communities, and embrace innovation to address challenges.</p>
+    <p>We treat everyone with dignity and respect, delivering high-quality programs and services, and we are responsible stewards of resources, focused on improving lives and fostering socio-economic development.</p>
+  </div>
+</div></section>
+
+<section class="block join" id="contact"><div class="wrap">
+  <h2>Join us in making a difference</h2>
+  <p>We invite you to join our mission to create a better future. Whether you’re an individual, a business, or an organization, there are many ways to get involved. Together, we can make a lasting impact on the lives of those who need it most.</p>
+  <form id="f">
+    <label>Your name<input name="n" required autocomplete="name"></label>
+    <label>Email<input type="email" name="e" required autocomplete="email"></label>
+    <label>I am joining as<select name="t"><option>An individual</option><option>A business</option><option>An organization</option></select></label>
+    <label>Message<textarea name="m"></textarea></label>
+    <button class="btn" type="submit">Send message</button>
+  </form>
+  <p class="note" id="note" role="status"></p>
+</div></section>
+</main>
+
+<footer><div class="wrap"><a class="logo" href="#top">VARIEE</a><span>Health · Women · Education · Agriculture · Nutrition · Skills · Enterprise</span></div></footer>
+
+<script>
+const D=[
+ {n:"Health & Hygiene",c:"#f2a71b",t:"We believe that good health is the foundation of a productive society. Our health and hygiene programs give communities the knowledge and resources to maintain healthy lifestyles. From clean water initiatives to personal hygiene education, we are committed to improving the overall well-being of individuals."},
+ {n:"Women Empowerment",c:"#ff7d6e",t:"Empowering women is central to our mission. We create opportunities for women to gain financial independence, access education, and participate fully in society. Through our initiatives, we break down barriers and support women in achieving their full potential."},
+ {n:"Education",c:"#5cc8ff",t:"Education is a powerful tool for change. Our programs bring quality education to underprivileged communities, so that children and adults alike have the skills and knowledge they need to succeed. We support both formal and informal initiatives, from primary education to vocational training."},
+ {n:"Agriculture",c:"#6fd08c",t:"Agriculture is the backbone of many communities, and we promote sustainable farming practices. Our programs help farmers increase productivity, improve crop quality, and access markets, leading to better livelihoods and food security."},
+ {n:"Food & Nutrition",c:"#d9e85a",t:"Good nutrition is essential for healthy development. We improve food security and nutrition through food distribution programs, nutrition education, and support for local food production, so that everyone has access to nutritious food."},
+ {n:"Skill Development",c:"#b58cff",t:"In today’s world, skills are key to economic success. Our programs give individuals the training they need to secure employment or start their own businesses, with courses from technical skills to entrepreneurship, designed around the needs of our communities."},
+ {n:"Socio-Economic Development",c:"#3fd6c4",t:"We strive to create environments where communities can prosper. Our initiatives focus on building infrastructure, improving access to services, and fostering economic growth. By supporting local businesses and creating jobs, we help communities become self-sufficient."},
+ {n:"Business Mentorship",c:"#ff9ec7",t:"Entrepreneurship is a powerful driver of economic growth. Our mentorship programs connect aspiring entrepreneurs with experienced mentors who offer guidance, advice, and support, helping individuals turn ideas into successful businesses and creating jobs."}
+];
+const NS="http://www.w3.org/2000/svg",svg=document.getElementById("mandala"),chips=document.getElementById("chips");
+const N=D.length;let cur=0;
+D.forEach((d,i)=>{
+  const a=i*360/N;
+  const g=document.createElementNS(NS,"ellipse");
+  g.setAttribute("cx",200);g.setAttribute("cy",112);g.setAttribute("rx",36);g.setAttribute("ry",84);
+  g.setAttribute("fill",d.c);g.setAttribute("class","petal");g.setAttribute("tabindex",0);
+  g.setAttribute("role","button");g.setAttribute("aria-label",d.n);
+  g.style.setProperty("--a",a+"deg");g.style.transform="rotate("+a+"deg)";g.style.animationDelay=(.2+i*.12)+"s";
+  g.addEventListener("click",()=>{pick(i);document.getElementById("domains").scrollIntoView({behavior:"smooth"})});
+  g.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();pick(i);document.getElementById("domains").scrollIntoView({behavior:"smooth"})}});
+  svg.appendChild(g);
+  const b=document.createElement("button");
+  b.className="chip";b.textContent=d.n;b.style.setProperty("--c",d.c);b.setAttribute("role","tab");
+  b.addEventListener("click",()=>pick(i));chips.appendChild(b);
+});
+const core=document.createElementNS(NS,"circle");
+core.setAttribute("cx",200);core.setAttribute("cy",200);core.setAttribute("r",15);core.setAttribute("class","core");svg.appendChild(core);
+function pick(i){
+  cur=i;const d=D[i];
+  svg.querySelectorAll(".petal").forEach((p,k)=>{p.classList.toggle("on",k===i);p.classList.toggle("dim",k!==i)});
+  chips.querySelectorAll(".chip").forEach((c,k)=>c.setAttribute("aria-selected",k===i));
+  core.style.fill=d.c;
+  const pn=document.getElementById("panel");pn.classList.remove("swap");void pn.offsetWidth;pn.classList.add("swap");
+  document.getElementById("swatch").style.setProperty("--c",d.c);
+  document.getElementById("ptitle").textContent=d.n;
+  document.getElementById("ptext").textContent=d.t;
+}
+pick(0);
+(function(){
+  if(!("IntersectionObserver" in window))return;
+  const els=document.querySelectorAll(".vm article,.words span,.vgrid p,.split>*,.join .wrap>*,.xh");
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.15});
+  els.forEach((el,i)=>{el.classList.add("rv");el.style.setProperty("--d",(i%6)*.07+"s");io.observe(el)});
+})();
+(function(){
+  const h=document.querySelector(".hero h1");
+  h.innerHTML=h.textContent.trim().split(/\s+/).map((w,i)=>'<span class="w"><span style="--i:'+i+'">'+w+'</span></span>').join(" ");
+  const hd=document.querySelector("header"),pr=document.getElementById("prog");
+  const reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
+  const rl=document.querySelector(".bg .rl"),rl2=rl.cloneNode(true);rl2.classList.add("two");rl.parentNode.appendChild(rl2);
+  const T=[[".bg .l1",.1,10],[".bg .l2",.2,22],[".bg .rl:not(.two)",.14,-14],[".bg .rl.two",.26,16],[".mwrap",-.05,16],[".hero .wrap>div:first-child",.08,-6]].map(a=>({el:document.querySelector(a[0]),k:a[1],m:a[2]}));
+  let cy=scrollY,mx=0,my=0,cx=0,cm=0;
+  addEventListener("mousemove",e=>{mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5},{passive:true});
+  (function frame(){
+    const sy=scrollY;cy+=(sy-cy)*.075;cx+=(mx-cx)*.05;cm+=(my-cm)*.05;
+    const max=document.documentElement.scrollHeight-innerHeight;
+    pr.style.setProperty("--p",max>0?Math.min(1,sy/max):0);
+    hd.classList.toggle("scrolled",sy>40);
+    if(!reduce)T.forEach(t=>{t.el.style.transform="translate3d("+(cx*t.m).toFixed(2)+"px,"+(cy*t.k+cm*t.m).toFixed(2)+"px,0)"});
+    requestAnimationFrame(frame);
+  })();
+})();
+document.getElementById("f").addEventListener("submit",e=>{
+  e.preventDefault();
+  document.getElementById("note").textContent="Thank you. Your message is ready to send once the contact email is connected to this form.";
+});
+</script>
+</body>
+</html>
